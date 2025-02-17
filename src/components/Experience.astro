@@ -1,0 +1,47 @@
+---
+import ExperienceItem from "./ExperienceItems.astro"
+const EXPERIENCE = [
+  {
+    date: "11/2023 - Actualidad",
+    title: "Cursus 42 - Full Stack Development",
+    company: "Fundación Telefónica España",
+    description: 
+    `
+      <ul>
+        <li>Aprender y enseñar mediante el innovador método peer-to-peer.</li><br />
+        <li>Adquirir habilidades prácticas en gestión de memoria, estructuras de datos y depuración.</li><br />
+        <li>Fomentar el trabajo en equipo y la colaboración.</li><br />
+        <li>Implementar una biblioteca con macros y tipos de datos para simplificar la programación de aplicaciones en lenguaje C.</li><br />
+      </ul>
+    `,
+        link: "https://github.com/Stebam88?tab=repositories",
+  },
+  {
+    date: "03/2023 - 08/2023",
+    title: "Junior Full Stack Developer",
+    company: "CT Ingenieros",
+    description:
+    `
+      <ul>
+        <li>Diseñar un requisito de proyecto que, a través de un documento <strong>HTML</strong>, envía datos completados a un archivo JSON o los obtenía de un JSON para completar el documento,   .</li><br />
+        <li>Desarrollar un script en Python para leer hojas de Excel y exportar datos a una base de datos, logrando una mejora del 70% en la eficiencia de los empleados.</li><br />
+        <li>Crear un script en Python para enviar comandos a un brazo robótico hidráulico, mejorando significativamente los ingresos mensuales de la empresa.</li><br />
+        <li>Depurar y resolver problemas de código, logrando una reducción del 25% en problemas de producción y un aumento del 15% en la satisfacción del cliente.</li><br />
+        <li>Colaboración activa con otros desarrolladores, diseñadores y product owners.</li><br />
+      </ul>
+  `
+
+  },
+]
+---
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>
+

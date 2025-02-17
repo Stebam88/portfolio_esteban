@@ -1,0 +1,131 @@
+---
+import GitHub from "./icons/GithubIcon.astro"
+import NextJS from "./icons/NextJS.astro"
+import Tailwind from "./icons/Tailwind.astro"
+import Link from "./icons/Link.astro"
+import LinkButton from "./LinkButton.astro"
+import Html from "./icons/Html.astro"
+import Javascript from "./icons/Javascript.astro"
+import Boostrap from "./icons/Boostrap.astro"
+import Css from "./icons/Css.astro"
+import Python from "./icons/Python.astro"
+import LinkInline from "./LinkInline.astro"
+import Maspro from "./Maspro.astro"
+
+const TAGS = {
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: NextJS,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+  HTML: {
+    name: "HTML",
+    class: "bg-[#E65100] text-white",
+    icon: Html,
+  },
+  JAVASCRIPT: {
+  name: "JavaScript",
+  class: "bg-[#F7DF1E] text-black",
+  icon: Javascript,
+},
+BOOTSTRAP: {
+  name: "Bootstrap",
+  class: "bg-[#563d7c] text-white",
+  icon: Boostrap,
+},
+CSS: {
+  name: "CSS",
+  class: "bg-[#2965f1] text-white",
+  icon: Css,
+},
+PYTHON: {
+  name: "Python",
+  class: "bg-[#306998] text-white",
+  icon: Python,
+},
+
+
+
+}
+const PROJECTS = [
+  {
+    title: "Diseño de Web Responsive",
+    description:
+      "Este proyecto consiste en el diseño y desarrollo de un sitio web atractivo y funcional utilizando las tecnologías fundamentales de la web: HTML, CSS y el framework Bootstrap. El objetivo es crear una plataforma moderna y responsiva que proporcione una experiencia de usuario fluida en dispositivos de diferentes tamaños.",
+    link: "https://stebam88.github.io/web_boostrap/",
+    github: "https://github.com/Stebam88/web_boostrap",
+    image: "/projects/web_ddd.jpg",
+    tags: [TAGS.HTML, TAGS.JAVASCRIPT, TAGS.BOOTSTRAP, TAGS.CSS],
+  },
+  {
+    title: "Importador de Datos de Excel a Base de Datos con Python",
+    description:
+      "Este proyecto consiste en un script en Python que lee archivos Excel, traduce sus datos y los guarda en una base de datos. El script conecta con la base de datos y actualiza una tabla específica con los valores del archivo Excel, mostrando los resultados en consola.",
+    github: "https://github.com/Stebam88/Lector_excels_python",
+    image: "/projects/pr1.webp",
+    tags: [TAGS.PYTHON],
+  },
+  {
+    title: "Sistema de Edición y Sincronización de Datos con Servidor",
+    description:
+  "Este proyecto es una aplicación web que sincroniza datos entre un cliente y un servidor. Permite cargar datos desde el servidor en un documento HTML, editar los valores directamente en celdas editables y luego enviar esos cambios de vuelta al servidor para su actualización. Incluye un botón para traer los datos almacenados y otro para actualizar los datos en el servidor. También cuenta con una función de impresión para ver los cambios. Aunque el diseño visual es básico, el enfoque principal es la correcta implementación de la sincronización de datos utilizando peticiones HTTP.",
+    github: "https://github.com/Stebam88/enviar_datos_traer_datos",
+    image: "/projects/env_tra_d.jpg",
+    tags: [TAGS.HTML, TAGS.JAVASCRIPT],
+  },
+]
+---
+
+<div class="flex flex-col gap-y-16">
+  {PROJECTS.map(({ image, title, description, tags, link, github }) => (
+    <article class="flex flex-col md:flex-row md:space-x-8 md:space-y-0 group space-x-0 space-y-8 items-center">
+      <div class="w-full md:w-1/2 flex justify-center items-center">
+        <div class="relative flex flex-col gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+          <img alt="Imagen proyecto" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" src={image} />
+        </div>
+      </div>
+
+      <div class="w-full md:w-1/2 md:max-w-lg">
+        <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+          {title}
+        </h3>
+        <div class="flex flex-wrap mt-2">
+          <ul class="flex flex-row mb-2 gap-x-2">
+            {tags.map((tag) => (
+              <li>
+                <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
+                  <tag.icon class="size-4" />
+                  {tag.name}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="mt-2 text-gray-700 dark:text-gray-400" set:html={description}></div>
+        <footer class="flex items-end justify-start mt-4 gap-x-4">
+          {github && (
+            <LinkButton href={github}>
+              <GitHub class="size-6" />
+              Code
+            </LinkButton>
+          )}
+          {link && (
+            <LinkButton href={link}>
+              <Link class="size-4" />
+              Preview
+            </LinkButton>
+          )}
+        </footer>
+      </div>
+    </article>
+  ))}
+</div>
+<Maspro href="https://github.com/Stebam88?tab=repositories">
+  Más Proyectos >
+</Maspro>
+
